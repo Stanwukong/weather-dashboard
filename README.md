@@ -1,36 +1,132 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Weather Dashboard
 
-## Getting Started
+A Next.js application that allows users to search for and view current weather conditions in cities worldwide. Built with Next.js 15, TypeScript, and Tailwind CSS.
 
-First, run the development server:
+## Features
 
+- 🔍 City-based weather search
+- 🌡️ Real-time weather data display
+- 📱 Responsive design for mobile and desktop
+- 🗂️ Search history tracking
+- ⚡ Server-side rendering for optimal performance
+- 🛠️ TypeScript for type safety
+- 🎨 Clean UI with Tailwind CSS
+
+## Prerequisites
+
+Before you begin, ensure you have installed:
+- Node.js (v16.8 or higher)
+- npm (v7 or higher)
+
+You will also need:
+- An OpenWeatherMap API key (get one at [OpenWeatherMap](https://openweathermap.org/api))
+
+## Setup Instructions
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/Stanwukong/weather-dashboard.git
+cd weather-dashboard
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Create a `.env.local` file in the root directory and add your OpenWeatherMap API key:
+```
+NEXT_PUBLIC_OPENWEATHER_API_KEY=your_api_key_here
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Start the development server:
+```bash
+npm run dev
+```
 
-## Learn More
+5. Open [http://localhost:3000](http://localhost:3000) in your browser to view the application.
 
-To learn more about Next.js, take a look at the following resources:
+## Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+weather-dashboard/
+    ├── app/                    # Next.js 15+ app directory
+    ├── components/             # React components
+    ├── lib/                    # Utilities
+    └── hooks/                  # Custom React hooks
+    ├── public/                 # Static files
+    └── [Configuration files]
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Assumptions Made
 
-## Deploy on Vercel
+1. API and Data:
+   - OpenWeatherMap API is used as the weather data source
+   - Temperature is displayed in Celsius
+   - Weather icons are sourced directly from OpenWeatherMap
+   - API responses are consistent with the defined interfaces
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. User Experience:
+   - Users have a stable internet connection
+   - Users primarily search by city name
+   - Search history should persist between sessions
+   - Mobile users form a significant portion of the user base
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+3. Technical:
+   - Modern browser support is required (ES6+ features)
+   - Local storage is available and enabled
+   - Environment variables are properly configured
+   - Server-side rendering is preferred for initial data fetch
+
+4. Performance:
+   - Weather data is fetched on-demand rather than cached
+   - Search history is stored locally rather than in a database
+   - API rate limits are handled by the frontend
+
+## Error Handling
+
+The application handles several error cases:
+- Invalid city names
+- API connection failures
+
+## Development Decisions
+
+1. Next.js App Router:
+   - Utilized for better SEO and performance
+   - Enables server-side rendering of weather data
+   - Provides clean URL structure (/weather/[city])
+
+2. TypeScript:
+   - Ensures type safety across the application
+   - Improves development experience with better IDE support
+   - Reduces potential runtime errors
+
+3. Tailwind CSS:
+   - Enables rapid UI development
+   - Ensures consistent styling
+   - Provides excellent responsive design utilities
+
+4. Local Storage:
+   - Used for search history persistence
+   - Provides quick access to previous searches
+   - Reduces server load
+
+## Future Improvements
+
+Possible enhancements that could be added:
+- Weather forecasts for upcoming days
+- Geolocation support
+- Unit conversion (Celsius/Fahrenheit)
+- More detailed weather information
+- Weather alerts and notifications
+- City autocomplete suggestions
+- Dark mode support
+- Favorite cities feature
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request

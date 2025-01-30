@@ -13,8 +13,6 @@ const WeatherCard = ({ data }: Props) => {
     const { name, main,  weather,  } = data;
 
     const { month, day, num } = getMonth();
-    console.log(month, day);
-  console.log(data);
   return (
     <div className="flex text-black flex-col items-center p-6 w-full">
       <section className="flex w-full justify-between items-center">
