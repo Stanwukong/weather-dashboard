@@ -10,9 +10,9 @@ type Props = {
 
 const WeatherCard = ({ data }: Props) => {
 
-    const { name, main, coord, weather, wind } = data;
+    const { name, main,  weather,  } = data;
 
-    const { date, month, day, num } = getMonth();
+    const { month, day, num } = getMonth();
     console.log(month, day);
   console.log(data);
   return (
