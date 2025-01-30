@@ -1,4 +1,3 @@
-
 import { getMonth } from "@/lib/utils";
 import { WeatherData } from "@/types";
 import Image from "next/image";
